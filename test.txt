@@ -1,1 +1,13 @@
-Hello Vera!
+#Получить все удаленные ветки, которые были влиты в ветку DEV (в результатах будет ветка DEV)
+git branch -r --merged DEV
+#Получить все удаленные ветки которые не были влиты в DEV
+git branch -r --no-merged DEV
+
+#Получить все удаленные ветки, которые были влиты в ветку DEV (из результатов ветка DEV будет исключена)
+git branch -r --contains DEV
+
+#Получить дельту между коммитом отмеченным тегом tag1 и веткой DEV (результат сохранить в файл delta_tag1_DEV.patch)
+git diff tag1 DEV >> delta_tag1_DEV.patch
+
+#Показать все комиты, которые были добавлены в ветку feature, но не находятся в ветке DEV
+git log origin/DEV..origin/feature
